@@ -19,6 +19,19 @@
 <body>
 <div id="mainDiv">
 	<div id="content">
+		<div id="loveHeart">
+			<canvas id="garden"></canvas>
+			<div id="words">
+				<div id="messages">
+					SMJ, We've known each other for
+					<div id="elapseClock"></div>
+				</div>
+				<div id="loveu">
+					Love u forever and ever.<br/>
+					<div class="signature">- ZDK</div>
+				</div>
+			</div>
+		</div>
 		<div id="code">
 			<span class="comments">##</span><br/>
 			<span class="comments"># I am a programmer,</span><br/>
@@ -53,19 +66,7 @@
 <!--			i.live_happily_forever_with(u)<br/>-->
 <!--			<span class="comments"># I love you forever.</span><br/>-->
 		</div>
-		<div id="loveHeart">
-			<canvas id="garden"></canvas>
-			<div id="words">
-				<div id="messages">
-					SMJ, We've known each other for
-					<div id="elapseClock"></div>
-				</div>
-				<div id="loveu">
-					Love u forever and ever.<br/>
-					<div class="signature">- ZDK</div>
-				</div>
-			</div>
-		</div>
+
 	</div>
 <!--	<div id="copyright">-->
 <!--		Copyright © 2020 <a href='https://zdk.world'>zdk.world</a> 2023-2023-->
@@ -92,6 +93,16 @@
 		$("#copyright").css("bottom", "10px");
 		document.execCommand("stop");
 	} else {
+		// 设置心形区域大小
+		// 获取可视区域宽高
+		// const width = window.innerWidth;
+		// const height = window.innerHeight;
+		// 获取canvas元素
+		// const canvas = document.getElementById('garden');
+
+		// 设置canvas宽高为可视区域宽高
+		// canvas.width = width;
+		// canvas.height = height;
 		setTimeout(function () {
 			startHeartAnimation();
 		}, 5000);

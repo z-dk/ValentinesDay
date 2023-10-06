@@ -12,10 +12,10 @@ $(function () {
 	gardenCtx = gardenCanvas.getContext("2d");
 	gardenCtx.globalCompositeOperation = "lighter";
 	garden = new Garden(gardenCtx, gardenCanvas);
-	$("#content").css("width", $loveHeart.width() + $("#code").width());
-	$("#content").css("height", Math.max($loveHeart.height(), $("#code").height()));
-	$("#content").css("margin-top", Math.max(($window.height() - $("#content").height()) / 2 - 50, 10));
-	$("#content").css("margin-left", Math.max(($window.width() - $("#content").width()) / 2, 10));
+	// $("#content").css("width", $loveHeart.width() + $("#code").width());
+	// $("#content").css("height", Math.max($loveHeart.height(), $("#code").height()));
+	// $("#content").css("margin-top", Math.max(($window.height() - $("#content").height()) / 2 - 50, 10));
+	// $("#content").css("margin-left", Math.max(($window.width() - $("#content").width()) / 2, 10));
 	setInterval(function () {
 		garden.render()
 	}, Garden.options.growSpeed)
@@ -30,13 +30,17 @@ $(window).resize(function () {
 
 function getHeartPoint(c) {
 	var b = c / Math.PI;
-	var a = 19.5 * (16 * Math.pow(Math.sin(b), 3));
-	var d = -20 * (13 * Math.cos(b) - 5 * Math.cos(2 * b) - 2 * Math.cos(3 * b) - Math.cos(4 * b));
+	// 控制心形宽度:11.5,14
+	var a = 11.5 * (14 * Math.pow(Math.sin(b), 3));
+	// 控制心形高度:12,10,4,1,0.5
+	var d = -12 * (10 * Math.cos(b) - 4 * Math.cos(2 * b) - 1 * Math.cos(3 * b) - 0.5 * Math.cos(4 * b));
 	return new Array(offsetX + a, offsetY + d)
 }
 
 function startHeartAnimation() {
+	// 绘制速度ms
 	var c = 50;
+
 	var d = 10;
 	var b = new Array();
 	var a = setInterval(function () {
@@ -58,7 +62,7 @@ function startHeartAnimation() {
 			clearInterval(a);
 			showMessages()
 		} else {
-			d += 0.2
+			d += 0.3
 		}
 	}, c)
 }
@@ -116,12 +120,12 @@ function showMessages() {
 
 function adjustWordsPosition() {
 	$("#words").css("position", "absolute");
-	$("#words").css("top", $("#garden").position().top + 195);
-	$("#words").css("left", $("#garden").position().left + 70)
+	$("#words").css("top", $("#garden").position().top + 90);
+	// $("#words").css("left", $("#garden").position().left + 70)
 }
 
 function adjustCodePosition() {
-	$("#code").css("margin-top", ($("#garden").height() - $("#code").height()) / 2)
+	// $("#code").css("margin-top", ($("#garden").height() - $("#code").height()) / 2)
 }
 
 function showLoveU() {
